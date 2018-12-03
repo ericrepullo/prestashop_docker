@@ -1,0 +1,13 @@
+version: "3.3"
+services:
+  web:
+    build: ./web
+    ports:
+      - "9990:80"
+      - "9993:443"
+    volumes:
+      - ./prestashop:/var/www/html
+  db:
+    images: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
